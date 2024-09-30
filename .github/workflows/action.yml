@@ -1,12 +1,10 @@
 name: Deploy Vite to GitHub Pages
 
-# El workflow se ejecuta cuando hay un push en la rama main
 on:
   push:
     branches:
       - main
 
-# Definimos los trabajos a ejecutar
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,17 +14,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Paso 2: Configurar Node.js con la versión que necesitas
+      # Paso 2: Configurar Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Cambia si necesitas otra versión
+          node-version: '18'  # Asegúrate de usar la versión de Node.js que necesitas
 
       # Paso 3: Instalar dependencias
       - name: Install dependencies
         run: npm install
 
-      # Paso 4: Construir el proyecto
+      # Paso adicional: Otorgar permisos de ejecución a Vite
+      - name: Add execution permissions
+        run: chmod +x ./node_modules/.bin/vite
+
+      # Paso 4: Ejecutar el build
       - name: Build project
         run: npm run build
 
@@ -34,5 +36,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Token para autenticación
-          publish_dir: ./dist  # La carpeta generada por Vite
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
