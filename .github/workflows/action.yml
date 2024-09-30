@@ -36,5 +36,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.catalogoTK }}  # Usar GITHUB_TOKEN para un repositorio público
+          github_token: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}  # Usar el nuevo token de acceso personal
           publish_dir: ./dist
