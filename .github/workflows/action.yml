@@ -35,8 +35,8 @@ jobs:
       # Paso 5: Desplegar en GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
-          publish_dir: ./dist
         env:
-          ACTIONS_DEPLOY_TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+        with:
+          github_token: $GITHUB_TOKEN
+          publish_dir: ./dist
