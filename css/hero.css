@@ -1,0 +1,89 @@
+.hero {
+    width: 100%;
+    height: 80vh; /* Ocupa el 80% de la altura de la vista */
+    background-image: url("/assets/img/header-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative; 
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Padding conservado */
+    overflow: hidden; /* Evita que el contenido sobrepase */
+}
+
+.hero h1 {
+    font-size: 48px; /* Tamaño grande para el título */
+    font-weight: 700; /* Negrita */
+    margin: 20px 0;
+    letter-spacing: 0.5px; /* Espaciado moderado entre letras */
+    color: #00bfff; /* Color vibrante */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+}
+
+.hero h2 {
+    font-size: 24px; /* Tamaño más grande para el subtítulo */
+    font-weight: 300; /* Ligera */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Mayúsculas para un toque moderno */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    color: rgba(255, 255, 255, 0.9); /* Color del texto */
+}
+
+.cta-button {
+    background-color: rgba(0, 191, 255, 0.9); /* Color vibrante con ligera transparencia */
+    color: #fff;
+    padding: 12px 25px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold;
+    border: none;
+    border-radius: 50px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    margin-top: 20px; /* Espacio superior */
+    box-shadow: 0 4px 15px rgba(0, 191, 255, 0.5); /* Sombra del botón */
+}
+
+.cta-button:hover {
+    background-color: rgba(0, 191, 255, 1); /* Cambio de color al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+    box-shadow: 0 6px 25px rgba(0, 191, 255, 0.7); /* Aumentar sombra al hacer hover */
+}
+
+/* Capa oscura para mejorar la legibilidad */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Capa oscura */
+    z-index: 1; /* Detrás del contenido */
+}
+
+.hero > * {
+    position: relative; /* Permite que el contenido esté encima de la capa oscura */
+    z-index: 2; /* Asegura que el texto esté visible */
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 1024px) {
+    .hero{
+        padding-top: 100px;
+    }
+    .hero h1 {
+        font-size: 36px; /* Tamaño más pequeño en móviles */
+    }
+
+    .hero h2 {
+        font-size: 20px; /* Tamaño más pequeño en móviles */
+    }
+
+    .cta-button {
+        padding: 10px 20px; /* Espaciado interno más pequeño en móviles */
+        font-size: 14px; /* Tamaño de fuente más pequeño en móviles */
+    }
+}
