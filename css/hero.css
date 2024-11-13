@@ -52,7 +52,7 @@
     box-shadow: 0 6px 25px rgba(0, 191, 255, 0.7); /* Aumentar sombra al hacer hover */
 }
 
-/* Capa oscura para mejorar la legibilidad */
+
 .hero::before {
     content: '';
     position: absolute;
